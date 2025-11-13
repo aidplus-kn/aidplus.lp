@@ -61,21 +61,16 @@
     .faq details+details{margin-top:10px}
     .faq summary{cursor:pointer;font-weight:700}
 
-    /* Company(legacy) */
-    .company{background:#0f2f47;color:#fff}
-    .company a{color:#fff}
-
-    /* ===== New: Company & Contact side-by-side block ===== */
+    /* Company + Contact */
     .company-contact-wrapper{background:linear-gradient(90deg,#f9fbfd 50%,#eaf4fb 50%);padding:64px 0}
     .company-contact{display:flex;justify-content:space-between;gap:40px;max-width:1180px;margin:auto;padding:0 20px;align-items:stretch}
     .company-box{flex:1;background:#103350;color:#fff;padding:32px 28px;border-radius:14px;box-shadow:0 6px 18px rgba(9,36,58,.2);display:flex;flex-direction:column;justify-content:center}
     .company-box ul{list-style:none;padding:0;margin:0}
     .company-box li{margin-bottom:8px}
     .company-box a{color:#fff;text-decoration:underline}
+
     .contact-box{flex:1;background:#ffffff;padding:32px 28px;border-radius:14px;box-shadow:0 8px 20px rgba(9,36,58,.1);display:flex;flex-direction:column;justify-content:center}
     .contact-box p{margin-bottom:24px;color:#333}
-
-    /* CTA buttons (for contact) */
     .btn-cta{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:50px;font-weight:800;font-size:18px;transition:all .3s ease;cursor:pointer;text-decoration:none;background:linear-gradient(90deg,#2386C8,#46a5ec);color:#fff;box-shadow:0 4px 12px rgba(35,134,200,.4)}
     .btn-cta:hover{background:linear-gradient(90deg,#1e76b0,#3d99df);transform:translateY(-2px);box-shadow:0 6px 16px rgba(35,134,200,.5)}
 
@@ -85,7 +80,37 @@
 
     footer{background:#0a2335;color:#cfe5f6;padding:18px 0;font-size:13px}
 
-    @media (max-width:768px){
+    /* ---------------------------------------------------------
+       スマホ（768px以下）でのヘッダー崩れ対策
+       --------------------------------------------------------- */
+    @media(max-width:768px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:6px;
+      }
+
+      .brand img{
+        width:64px;
+      }
+
+      .brand h1{
+        font-size:18px;
+        font-weight:900;
+      }
+
+      .menu{
+        flex-wrap:wrap;
+        justify-content:flex-start;
+        row-gap:6px;
+        column-gap:16px;
+        font-size:13px;
+      }
+
+      .menu a{
+        white-space:nowrap;
+      }
+
       .hero h2{font-size:28px}
       .hero p{font-size:15px}
       .media-grid,.grid-3,.grid-2{grid-template-columns:1fr}
@@ -95,6 +120,7 @@
   </style>
 </head>
 <body>
+
   <!-- Header -->
   <header>
     <div class="wrap nav">
@@ -125,9 +151,18 @@
       </div>
 
       <div class="media-grid" style="margin-top:18px">
-        <div class="media-card"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop" alt="チームでの伴走" referrerpolicy="no-referrer"><div class="cap">専任チームで伴走</div></div>
-        <div class="media-card"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop" alt="仕組み化" referrerpolicy="no-referrer"><div class="cap">業務の見える化と仕組み化</div></div>
-        <div class="media-card"><img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?q=80&w=1600&auto=format&fit=crop" alt="オンライン秘書" referrerpolicy="no-referrer"><div class="cap">オンライン秘書で一元管理</div></div>
+        <div class="media-card">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop" alt="専任チームで伴走" referrerpolicy="no-referrer">
+          <div class="cap">専任チームで伴走</div>
+        </div>
+        <div class="media-card">
+          <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?q=80&w=1600&auto=format&fit=crop" alt="業務の見える化と仕組み化" referrerpolicy="no-referrer">
+          <div class="cap">業務の見える化と仕組み化</div>
+        </div>
+        <div class="media-card">
+          <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?q=80&w=1600&auto=format&fit=crop" alt="オンライン秘書で一元管理" referrerpolicy="no-referrer">
+          <div class="cap">オンライン秘書で一元管理</div>
+        </div>
       </div>
     </div>
   </section>
@@ -159,7 +194,7 @@
           <ul>
             <li>社内文書・契約書テンプレ整備</li>
             <li>会議資料準備、備品・購買管理、書類整理・ファイリング</li>
-            <li>勤怠データ集計、社内ルール・規程の作成</li>
+            <li>勤怠データ集計、社内ルール・規程のドラフト</li>
           </ul>
         </div>
         <div class="card svc">
@@ -210,7 +245,7 @@
     </div>
   </section>
 
-  <!-- COMPANY + CONTACT (side-by-side) -->
+  <!-- COMPANY + CONTACT -->
   <section id="company-contact" class="company-contact-wrapper">
     <div class="company-contact">
       <div class="company-box">
