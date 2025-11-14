@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>経理・会計アウトソーシング｜エイドプラス株式会社</title>
+  <meta name="description" content="エイドプラス株式会社の経理・会計アウトソーシングサービスの詳細ページです。記帳代行、請求・入金管理、支払・経費精算、月次レポート作成など、中小企業・個人事業主の経理業務を専任チームが伴走支援します。" />
+  <style>
+    :root{ --aid-blue:#2386C8; --aid-ink:#0b2537; --aid-bg:#f5faff; --aid-line:#e6eef5; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic","Meiryo",system-ui,-apple-system,sans-serif;color:var(--aid-ink);line-height:1.7;background:var(--aid-bg)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:1180px;margin:auto;padding:0 20px}
+
+    /* Header（本体LPと同テイスト＋スマホ最適化） */
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--aid-blue) 0%, #2a8ed6 100%);color:#fff;box-shadow:0 6px 18px rgba(9,36,58,.18)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:56px;height:auto;object-fit:contain}
+    .brand h1{margin:0;font-size:20px;letter-spacing:.02em}
+    .menu{display:flex;gap:22px}
+    .menu a{opacity:.95;font-weight:700}
+    .menu a:hover{opacity:1;text-decoration:underline}
+
+    /* Hero（詳細ページ用） */
+    section{padding:56px 0}
+    .hero{
+      padding:40px 0 40px;
+      background:linear-gradient(180deg,#e2f0fb 0%,#f5faff 60%);
+    }
+    .hero-inner{
+      background:#ffffff;
+      border-radius:18px;
+      padding:22px 26px 24px; /* 少し詰めて“中身がある感じ”に */
+      box-shadow:0 8px 24px rgba(9,36,58,.12);
+      border:1px solid var(--aid-line);
+    }
+    .hero-main{flex:1}
+
+    /* 上部：アイコン＋パンくず＋タグライン */
+    .hero-row{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:10px;
+    }
+    .hero-icon{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#2386C8;
+      flex-shrink:0;
+    }
+    .hero-icon svg{
+      width:56px;
+      height:56px;
+      display:block;
+    }
+    .hero-meta{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      min-width:0;
+    }
+    .breadcrumb{
+      font-size:13px; /* 少し大きく */
+      color:#60738a;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .breadcrumb a{
+      color:#60738a;
+      text-decoration:underline;
+    }
+    .tagline{
+      display:inline-block;
+      background:#e6f1fb;
+      border-radius:999px;
+      padding:4px 11px;
+      font-size:12px;  /* ほんの少しアップ */
+      font-weight:700;
+      color:#1f5f95;
+      max-width:100%;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .hero-title{
+      font-size:26px;  /* 下の見出しより大きく */
+      font-weight:800;
+      margin:6px 0 8px;
+      color:#12344a;
+      white-space:nowrap;   /* PCでは1行を優先 */
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .hero-sub{
+      margin:0 0 14px;
+      font-size:15px;  /* 概要より少し大きく */
+      color:#4a5d6f;
+    }
+    .hero-note{
+      font-size:13px;
+      color:#7b8b9a;
+      margin-bottom:14px;
+    }
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:10px 20px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:14px;
+      cursor:pointer;
+      transition:all .25s ease;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .btn.primary{
+      background:linear-gradient(90deg,#2386C8,#46a5ec);
+      color:#fff;
+      box-shadow:0 4px 12px rgba(35,134,200,.4);
+    }
+    .btn.primary:hover{
+      transform:translateY(-1px);
+      box-shadow:0 6px 16px rgba(35,134,200,.55);
+    }
+    .btn.outline{
+      border:1px solid #c3d5e5;
+      color:#1f5f95;
+      background:#f5f9fd;
+    }
+    .btn.outline:hover{
+      background:#e6f1fb;
+    }
+
+    /* ここから下は他セクション（比較対象） */
+    .lead{text-align:left;font-size:24px;font-weight:800;margin:0 0 8px}
+    .sublead{color:#4a5d6f;margin:0 0 22px;max-width:860px;font-size:14px}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fff;border:1px solid var(--aid-line);border-radius:14px;padding:20px;box-shadow:0 6px 18px rgba(9,36,58,.06)}
+
+    .pill-title{font-size:13px;font-weight:700;color:var(--aid-blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+    .list{margin:0;padding-left:18px;font-size:14px}
+    .list li{margin-bottom:6px}
+
+    .table-like{display:grid;grid-template-columns:1fr 2fr;gap:10px;font-size:14px}
+    .table-like div{padding:6px 8px;border-radius:8px}
+    .table-like .head{background:#e6f1fb;font-weight:700}
+    .table-like .body{background:#fff}
+
+    .faq details{border:1px solid var(--aid-line);border-radius:10px;padding:10px 12px;background:#fff}
+    .faq details+details{margin-top:8px}
+    .faq summary{cursor:pointer;font-weight:700}
+
+    .back-link{margin-top:26px;font-size:14px}
+    .back-link a{text-decoration:underline}
+
+    .contact-cta{margin-top:32px;text-align:center}
+    .contact-cta p{margin-bottom:12px}
+    .contact-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:14px 24px;
+      border-radius:999px;
+      background:linear-gradient(90deg,#2386C8,#46a5ec);
+      color:#fff;
+      font-weight:800;
+      box-shadow:0 4px 12px rgba(35,134,200,.4);
+      text-decoration:none;
+    }
+    .contact-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 6px 16px rgba(35,134,200,.55);
+    }
+
+    footer{background:#0a2335;color:#cfe5f6;padding:18px 0;font-size:13px;margin-top:40px}
+
+    /* スマホ対応 */
+    @media(max-width:768px){
+      .nav{flex-direction:column;align-items:flex-start;gap:6px}
+      .brand img{width:64px}
+      .brand h1{font-size:18px;font-weight:900}
+      .menu{flex-wrap:wrap;justify-content:flex-start;row-gap:6px;column-gap:16px;font-size:13px}
+      .menu a{white-space:nowrap}
+
+      .hero{padding:28px 0 32px}
+      .hero-inner{
+        padding:16px 14px 18px;
+      }
+      .hero-row{
+        align-items:flex-start;
+        gap:10px;
+      }
+      .hero-icon svg{
+        width:46px;
+        height:46px;
+      }
+      .hero-title{
+        font-size:20px;
+        white-space:normal;  /* スマホでは折り返しOK */
+      }
+      .hero-sub{font-size:13px}
+      .hero-note{font-size:11px}
+
+      .grid-2{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <img src="logo.png" alt="エイドプラス ロゴ" />
+        <h1>エイドプラス株式会社</h1>
+      </div>
+      <nav class="menu">
+        <a href="index.html#home">ホーム</a>
+        <a href="index.html#services">サービス一覧</a>
+        <a href="#top">経理・会計 詳細</a>
+        <a href="index.html#company-contact">会社概要・お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero（詳細ページ専用） -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="hero-main">
+          <div class="hero-row">
+            <div class="hero-icon" aria-hidden="true">
+              <!-- 電卓アイコン -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <rect x="7" y="7" width="10" height="5"></rect>
+                <path d="M7 16h.01M11 16h.01M15 16h.01"></path>
+              </svg>
+            </div>
+            <div class="hero-meta">
+              <div class="breadcrumb">
+                <a href="index.html#services">サービス一覧</a> &gt; 経理・会計
+              </div>
+              <div class="tagline">経理・会計アウトソーシング</div>
+            </div>
+          </div>
+
+          <h1 class="hero-title">日々の経理を、まとめて安心して任せられるパートナーに</h1>
+
+          <p class="hero-sub">
+            記帳、請求・入金管理、支払・経費精算、月次レポート作成まで。<br>
+            「経理担当が一人で不安」「社長が片手間でやっている」状態から卒業し、
+            数字を経営に活かせる体制づくりをお手伝いします。
+          </p>
+          <p class="hero-note">
+            ※ 決算・申告などの税理士業務は、顧問税理士・提携税理士と連携して実施します。
+            エイドプラスは日々の経理実務とデータ整備を担当します。
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="#contact">経理の相談をしてみる</a>
+            <a class="btn outline" href="index.html#services">サービス一覧に戻る</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 概要＋どんな悩みを解決できるか -->
+  <section>
+    <div class="wrap">
+      <h2 class="lead">経理・会計サポートの概要</h2>
+      <p class="sublead">日々の入力作業から、請求・入金管理、支払・経費精算、月次レポート作成までを一気通貫で支援します。自社のルールや既存の会計ソフトを尊重しながら、抜け漏れのない運用フローを一緒に設計します。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="pill-title">こんなお悩みに</div>
+          <ul class="list">
+            <li>領収書・請求書の整理や入力作業に時間を取られている</li>
+            <li>月次の数字が出るのが遅く、経営判断に活かせていない</li>
+            <li>売掛・買掛の残高管理があいまいで、入金漏れが不安</li>
+            <li>経費精算ルールが曖昧で、社員ごとにやり方がバラバラ</li>
+            <li>税理士へ渡す資料作成に毎月バタバタしてしまう</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="pill-title">サポートの考え方</div>
+          <ul class="list">
+            <li>「何を・いつまでに・どのツールで行うか」を一緒に整理し、業務フローを可視化します。</li>
+            <li>単なる入力代行ではなく、チェック体制や二重確認のルールづくりまで伴走します。</li>
+            <li>顧問税理士・社労士がいる場合は、連携を前提とした資料フォーマットで運用します。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 対応業務の詳細 -->
+  <section>
+    <div class="wrap">
+      <h2 class="lead">対応業務の詳細</h2>
+      <p class="sublead">お客様の体制やご利用ツールに応じて、必要な業務だけを組み合わせてご提案します。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>① 記帳代行・日次業務</h3>
+          <ul class="list">
+            <li>領収書・レシート・通帳明細・クレジット明細などの整理</li>
+            <li>会計ソフトへの仕訳入力（現金／預金／売掛・買掛など）</li>
+            <li>インターネットバンキングやカード明細データの取り込み設定</li>
+            <li>勘定科目・補助科目の整理、仕訳ルールの整備</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>② 請求・入金管理</h3>
+          <ul class="list">
+            <li>請求書発行（テンプレートの整備・クラウド請求書サービスの設定）</li>
+            <li>売上データと連動した請求内容のチェック</li>
+            <li>入金消込（銀行明細との突合、入金漏れの抽出）</li>
+            <li>売掛金残高一覧の作成・回収状況のレポート</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>③ 支払・経費精算</h3>
+          <ul class="list">
+            <li>支払予定一覧の作成（仕入・外注・経費などの支払スケジュール）</li>
+            <li>インターネットバンキングへの振込データ作成（振込自体はお客様側で実行）</li>
+            <li>社員経費精算のルール作り・精算フローの設計</li>
+            <li>交通費・立替経費のチェック、証憑との突合</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>④ 月次レポート・税理士連携</h3>
+          <ul class="list">
+            <li>月次試算表の作成と、前月・前年同月との簡易比較</li>
+            <li>粗利・経費の推移など、経営者向けのシンプルなレポート作成</li>
+            <li>顧問税理士へ提出する資料の整理（総勘定元帳、補助台帳など）</li>
+            <li>決算・申告は顧問税理士と連携して実施（当社は実務資料の準備を担当）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 運用イメージ・ツール -->
+  <section>
+    <div class="wrap">
+      <h2 class="lead">運用イメージと利用ツール</h2>
+      <p class="sublead">「いま使っているツールを活かしながら、少しずつ整えていく」スタンスでご支援します。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>週次〜月次のやり取りイメージ</h3>
+          <ul class="list">
+            <li>チャット（例：Chatwork / Slack 等）での連絡・確認</li>
+            <li>クラウドストレージへの証憑アップロード（または郵送での預かり）</li>
+            <li>週次での入力状況共有、月次での数字の簡易報告</li>
+            <li>オンラインミーティング（必要に応じて）での状況確認・相談</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>対応可能な会計ソフトの例</h3>
+          <div class="table-like">
+            <div class="head">クラウド会計</div>
+            <div class="body">freee会計、マネーフォワード クラウド会計 など</div>
+            <div class="head">インストール型</div>
+            <div class="body">弥生会計 など（バックアップデータを共有いただく形も対応可）</div>
+            <div class="head">その他</div>
+            <div class="body">現行の運用に合わせて柔軟に検討いたします。導入前のツール選定相談も可能です。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ & contact誘導 -->
+  <section class="faq" id="contact">
+    <div class="wrap">
+      <h2 class="lead">よくあるご質問</h2>
+
+      <div class="grid-2">
+        <div>
+          <details>
+            <summary>一部の業務だけ依頼することはできますか？</summary>
+            <p>可能です。記帳だけ・請求書発行だけ・入金管理だけなど、現状の体制に合わせて切り出してご依頼いただけます。</p>
+          </details>
+          <details>
+            <summary>毎月どのくらいのボリュームから対応してもらえますか？</summary>
+            <p>領収書や仕訳件数が少ない小規模事業者さまから、数百仕訳／月の法人さままで柔軟に対応しています。まずは現在の状況をお聞かせください。</p>
+          </details>
+        </div>
+        <div>
+          <details>
+            <summary>現金出納や請求書発行は、社内担当とどう分担しますか？</summary>
+            <p>「社内でやること」「エイドプラスに任せること」を初期設計で明確にし、担当表・フロー図として共有します。</p>
+          </details>
+          <details>
+            <summary>試しに数カ月だけお願いすることは可能ですか？</summary>
+            <p>スタート時は3カ月程度のトライアル運用から始め、運用が安定してから本契約に切り替えることも可能です。</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="contact-cta">
+        <p>経理・会計まわりのお困りごとは、まとめてお気軽にご相談ください。</p>
+        <a class="contact-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdH8Q86Q2sBswQLaOiJhyhhtwnx5QHZvfw19uRUBa5CWOHfAg/viewform?usp=header" target="_blank" rel="noopener">
+          ✉️ 経理について無料でお問い合わせ
+        </a>
+
+        <div class="back-link">
+          <a href="index.html#services">← 事務代行トップ（サービス一覧）に戻る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">© <span id="y"></span> エイドプラス株式会社</div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
