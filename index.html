@@ -1,300 +1,626 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>エイドプラス株式会社｜事務代行・オンライン秘書｜鹿児島</title>
-  <meta name="description" content="エイドプラス株式会社は、経理・総務・庶務・オンライン秘書を中心とした事務代行サービスで、中小企業・個人事業のバックオフィスをワンストップ支援します。鹿児島市を拠点に全国リモート対応。" />
-  <style>
-    /* 変数定義 */
-    :root{ --aid-blue:#2386C8; --aid-ink:#0b2537; --aid-bg:#f5faff; --aid-line:#e6eef5; }
-    /* リセット */
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic","Meiryo",system-ui,-apple-system,sans-serif;color:var(--aid-ink);line-height:1.7;background:var(--aid-bg)}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .wrap{max-width:1180px;margin:auto;padding:0 20px}
-
-    /* ヘッダー */
-    header{position:sticky;top:0;z-index:50;background:linear-gradient(to right, #ffffff, #f0f8ff);border-bottom:1px solid #e0eaf4;padding:12px 0}
-    .header-content{display:flex;justify-content:space-between;align-items:center}
-    .logo-text{font-size:18px;font-weight:bold;color:var(--aid-ink);white-space:nowrap}
-    nav ul{display:flex;list-style:none;padding:0;margin:0}
-    nav ul li{margin-left:20px}
-    nav ul li a{color:var(--aid-ink);font-weight:600;padding:5px 0;transition:color 0.3s}
-    nav ul li a:hover{color:var(--aid-blue)}
-    /* スマホメニュー（デフォルト非表示） */
-    .menu-toggle, .drawer-menu{display:none}
-
-    /* CTAボタン */
-    .btn-cta{display:inline-block;padding:10px 20px;background-color:var(--aid-blue);color:#fff!important;border-radius:25px;font-weight:bold;text-align:center;transition:opacity 0.3s, transform 0.3s;box-shadow:0 4px 10px rgba(35, 134, 200, 0.4)}
-    .btn-cta:hover{opacity:0.9;transform:translateY(-1px)}
-
-    /* メインコンテンツセクション */
-    section{padding:80px 0}
-    section:nth-child(even){background-color:#fff}
-    h1{font-size:36px;text-align:center;margin-bottom:40px;color:var(--aid-ink);border-bottom:3px solid var(--aid-blue);display:inline-block;padding-bottom:10px}
-    h2{font-size:28px;text-align:center;margin-bottom:30px;color:var(--aid-blue)}
-    h3{font-size:20px;color:var(--aid-ink);border-left:4px solid var(--aid-blue);padding-left:10px;margin-top:30px}
-    .lead{font-size:24px;text-align:center;margin-bottom:40px;font-weight:bold;color:var(--aid-ink)}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エイドプラス株式会社｜事務代行・オンライン秘書</title>
+    <meta name="description" content="エイドプラス株式会社は、経理・総務・庶務・オンライン秘書を中心とした事務代行サービスで、中小企業・個人事業のバックオフィスをワンストップ支援します。">
     
-    /* ヒーローセクション */
-    #hero{background:var(--aid-ink);color:#fff;padding:100px 0;text-align:center;position:relative;overflow:hidden}
-    #hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url('hero.jpg') no-repeat center center/cover;opacity:0.2;z-index:1}
-    #hero .wrap{position:relative;z-index:2}
-    #hero h1{font-size:48px;border-bottom:none;margin-bottom:20px;color:#fff}
-    #hero p{font-size:20px;margin-bottom:40px}
-
-    /* サービスグリッド */
-    .grid-3{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:30px;margin-top:40px}
-    .service-card{background-color:#fff;padding:30px;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.05);transition:transform 0.3s;border-top:5px solid var(--aid-blue);text-align:left}
-    .service-card:hover{transform:translateY(-5px);box-shadow:0 12px 25px rgba(0,0,0,0.1)}
-    .service-card h3{margin-top:0;font-size:20px}
-    .service-card p{font-size:15px;line-height:1.6}
-
-    /* 選ばれる理由 */
-    .reason-box{background-color:#fff;padding:30px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.05);margin-bottom:20px;display:flex;align-items:flex-start}
-    .reason-icon{font-size:36px;color:var(--aid-blue);margin-right:15px;line-height:1}
-    .reason-content h3{margin-top:0;margin-bottom:5px;font-size:18px;border-left:none;padding-left:0}
-    .reason-content p{font-size:15px}
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    /* 会社概要 + お問い合わせセクション */
-    #company-contact{background-color:var(--aid-ink);color:#fff;padding-bottom:40px}
-    .company-contact{display:flex;gap:40px;text-align:left;flex-wrap:wrap}
-    .company-box, .contact-box{flex:1;min-width:300px}
-    .company-box ul{list-style:none;padding:0;font-size:15px}
-    .company-box li{margin-bottom:10px}
-    .company-box strong{min-width:60px;display:inline-block}
-    .company-box a{color:#a0c8ff;text-decoration:underline}
-    .contact-box p{font-size:15px}
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel (JSX変換用) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    /* お問い合わせCTA */
-    .contact-box .btn-cta{margin-top:15px;width:100%;max-width:300px}
+    <!-- Google Fonts (Noto Sans JP) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-    /* フッターのスタイル修正と追加 */
-    footer{background-color:var(--aid-ink);padding:16px 0}
-    .footer-content {
-      display: flex; /* Flexboxを有効にする */
-      align-items: center; /* 垂直方向の中央揃え */
-      justify-content: center; /* 水平方向の中央揃え */
-      color: #fff;
-      font-size: 12px;
-      gap: 8px; /* ロゴとテキストの間のスペース */
-    }
-    .footer-logo {
-      height: 24px; /* ロゴの高さを調整 */
-      /* ロゴの色を白く反転させる（元のロゴが青文字の場合、フッターの濃色背景で視認性確保のため） */
-      filter: brightness(0) invert(1); 
-    }
-
-    /* レスポンシブ対応 */
-    @media (max-width: 768px) {
-      /* ヘッダーの修正（ハンバーガーメニュー化） */
-      nav{display:none}
-      .menu-toggle{display:block;cursor:pointer;font-size:24px;padding:5px}
-      .drawer-menu{
-        position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(11, 37, 55, 0.95);
-        z-index:100;flex-direction:column;align-items:center;justify-content:center;
-        transition:opacity 0.3s, visibility 0.3s;
-        opacity:0;visibility:hidden;
-      }
-      .drawer-menu.open{opacity:1;visibility:visible}
-      .drawer-menu ul{flex-direction:column;text-align:center}
-      .drawer-menu ul li{margin:15px 0;font-size:20px}
-      .drawer-menu ul li a{color:#fff;padding:10px 0}
-      .close-menu{position:absolute;top:20px;right:20px;color:#fff;font-size:30px;cursor:pointer}
-      
-      /* メインコンテンツの調整 */
-      section{padding:50px 0}
-      h1{font-size:30px;margin-bottom:30px}
-      h2{font-size:24px;margin-bottom:20px}
-      .lead{font-size:20px;margin-bottom:30px}
-      #hero h1{font-size:36px}
-      #hero p{font-size:16px}
-      .grid-3{grid-template-columns:1fr}
-      .company-contact{flex-direction:column}
-      .company-box, .contact-box{min-width:auto}
-
-      /* フッターの調整 */
-      .footer-content {
-          flex-direction: row; /* スマホでも横並びを維持 */
-          font-size: 11px;
-      }
-      .footer-logo {
-          height: 20px; /* スマホでは少し小さく */
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Header -->
-  <header>
-    <div class="wrap header-content">
-      <a href="#" class="logo-text">エイドプラス株式会社</a>
-      <nav>
-        <ul>
-          <li><a href="#about">エイドプラスの強み</a></li>
-          <li><a href="#services">サービス</a></li>
-          <li><a href="#reasons">選ばれる理由</a></li>
-          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdH8Q86Q2sBswQLaOiJhyhhtwnx5QHZvfw19uRUBa5CWOHfAg/viewform?usp=header" target="_blank" rel="noopener">お問い合わせ</a></li>
-        </ul>
-      </nav>
-      <!-- ハンバーガーメニューアイコン -->
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    </div>
-  </header>
-
-  <!-- ドロワーメニュー (スマホ用) -->
-  <div id="drawerMenu" class="drawer-menu">
-    <div class="close-menu" onclick="toggleMenu()">×</div>
-    <ul>
-      <li><a href="#about" onclick="toggleMenu()">エイドプラスの強み</a></li>
-      <li><a href="#services" onclick="toggleMenu()">サービス</a></li>
-      <li><a href="#reasons" onclick="toggleMenu()">選ばれる理由</a></li>
-      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdH8Q86Q2sBswQLaOiJhyhhtwnx5QHZvfw19uRUBa5CWOHfAg/viewform?usp=header" target="_blank" rel="noopener" onclick="toggleMenu()">お問い合わせ</a></li>
-    </ul>
-  </div>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="wrap">
-      <h1>中小企業・個人事業のバックオフィスを<br>ワンストップで支援します</h1>
-      <p>経理・総務・庶務・オンライン秘書を中心とした<br class="pc-only">事務代行サービスで、経営に集中できる環境をつくります。</p>
-      <a class="btn-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdH8Q86Q2sBswQLaOiJhyhhtwnx5QHZvfw19uRUBa5CWOHfAg/viewform?usp=header" target="_blank" rel="noopener">まずは無料相談から</a>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrap">
-      <h2>エイドプラスの強み</h2>
-      <p class="lead">私たちは、貴社の成長を支えるバックオフィスパートナーです。</p>
-      
-      <div class="grid-3">
-        <div class="service-card">
-          <h3>専門性 × チーム体制</h3>
-          <p>経理、総務、秘書など、それぞれの専門知識を持つメンバーがチームとして担当。属人化を防ぎ、質の高いサービスを継続的に提供します。</p>
-        </div>
-        <div class="service-card">
-          <h3>鹿児島拠点 × 全国対応</h3>
-          <p>鹿児島に拠点を置きながら、ITツールを駆使して全国のリモート対応が可能です。地域に根差した丁寧さと、リモートの柔軟性を両立します。</p>
-        </div>
-        <div class="service-card">
-          <h3>ワンストップ支援</h3>
-          <p>経理、総務、秘書、さらにはWeb事務まで、バラバラになりがちなバックオフィス業務を一括で引き受け、窓口を一本化します。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="wrap">
-      <h2>サービス内容</h2>
-      <p class="lead">貴社の課題に応じて、必要な業務を柔軟に組み合わせます。</p>
-
-      <div class="grid-3">
-        <!-- 経理・会計 -->
-        <a href="keiri.html" class="service-card" style="border-top-color:#e05247;">
-          <h3>✅ 経理・会計アウトソーシング</h3>
-          <p>記帳代行、請求・入金管理、支払業務、経費精算、月次レポート作成など、経理業務全般をサポートします。会計ソフトの導入支援も可能です。</p>
-        </a>
-        <!-- 総務・庶務 -->
-        <a href="soumu.html" class="service-card" style="border-top-color:#38a8e0;">
-          <h3>📋 総務・庶務アウトソーシング</h3>
-          <p>備品管理、契約書管理、社内イベント運営、稟議・押印フローの事務など、総務・庶務業務を代行し、社内体制を整備します。</p>
-        </a>
-        <!-- オンライン秘書 -->
-        <div class="service-card" style="border-top-color:#82c91e;">
-          <h3>🧑‍💻 オンライン秘書・Web事務</h3>
-          <p>スケジュール調整、メール対応、資料作成、顧客管理（CRM）入力、SNS運用サポートなど、経営者さまの事務負担を軽減します。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- REASONS -->
-  <section id="reasons">
-    <div class="wrap">
-      <h2>選ばれる理由</h2>
-
-      <div class="reason-box">
-        <span class="reason-icon">1</span>
-        <div class="reason-content">
-          <h3>業務フローの「見える化」と改善提案</h3>
-          <p>単なる代行で終わらせず、貴社の現状業務を棚卸しし、効率化やコスト削減につながる改善案を積極的にご提案します。無駄のない体制構築を支援します。</p>
-        </div>
-      </div>
-
-      <div class="reason-box">
-        <span class="reason-icon">2</span>
-        <div class="reason-content">
-          <h3>高いセキュリティと守秘義務の徹底</h3>
-          <p>機密情報を扱う業務であることを認識し、契約書締結はもちろん、ITツールでのアクセス管理、情報共有フローの徹底など、セキュリティ対策を最優先に行います。</p>
-        </div>
-      </div>
-
-      <div class="reason-box">
-        <span class="reason-icon">3</span>
-        <div class="reason-content">
-          <h3>柔軟な契約期間と料金体系</h3>
-          <p>月々の業務量に応じて柔軟にプランを設計します。まずは3ヶ月のトライアルから始め、業務が安定してから本契約に移行するなど、リスクを抑えたスタートが可能です。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPANY + CONTACT -->
-  <section id="company-contact" class="company-contact-wrapper">
-    <div class="wrap company-contact">
-      <div class="company-box">
-        <p class="lead" style="color:#fff;margin-bottom:16px;text-align:left">会社概要</p>
-        <ul>
-          <li><strong>会社名：</strong>エイドプラス株式会社</li>
-          <li><strong>所在地：</strong>鹿児島市堀江町4-7-403</li>
-          <li><strong>TEL：</strong>099-800-6007</li>
-          <li><strong>メール：</strong><a href="mailto:aidplus.kn@gmail.com">aidplus.kn@gmail.com</a></li>
-        </ul>
-      </div>
-      <div class="contact-box">
-        <p class="lead" style="color:#a0c8ff;margin-bottom:8px;text-align:left">お問い合わせ</p>
-        <p style="text-align:left">まずはお気軽にお問い合わせください。1〜2営業日以内にご返信します。</p>
-        <div style="text-align:center;margin-top:auto">
-          <a class="btn-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdH8Q86Q2sBswQLaOiJhyhhtwnx5QHZvfw19uRUBa5CWOHfAg/viewform?usp=header" target="_blank" rel="noopener">✉️ 無料でお問い合わせ</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER: ロゴと会社名をバランス良く配置するように修正 -->
-  <footer>
-    <div class="wrap">
-      <div class="footer-content">
-        <!-- ロゴ画像を追加し、CSSでサイズと色を調整 -->
-        <img src="./ロゴ（背景透明・文字青）.png" alt="エイドプラス株式会社ロゴ" class="footer-logo">
-        <!-- 著作権表示テキスト -->
-        <span>&copy; 2024 エイドプラス株式会社</span>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // ハンバーガーメニューの開閉処理
-    function toggleMenu() {
-      const drawerMenu = document.getElementById('drawerMenu');
-      drawerMenu.classList.toggle('open');
-    }
-
-    // ページ内リンククリック時にメニューを閉じる（スマホのみ）
-    document.querySelectorAll('#drawerMenu a').forEach(item => {
-      item.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-          toggleMenu();
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        
+        /* アニメーション用ユーティリティ */
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
         }
-      });
-    });
-  </script>
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- アイコンコンポーネント ---
+        const Icon = ({ d, size = 24, className = "" }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                {d}
+            </svg>
+        );
+
+        const Icons = {
+            Menu: (p) => <Icon {...p} d={<><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></>} />,
+            X: (p) => <Icon {...p} d={<><path d="M18 6 6 18"/><path d="m6 6 12 12"/></>} />,
+            CheckCircle: (p) => <Icon {...p} d={<><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></>} />,
+            ArrowRight: (p) => <Icon {...p} d={<><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></>} />,
+            ChevronDown: (p) => <Icon {...p} d={<path d="m6 9 6 6 6-6"/>} />,
+            ChevronUp: (p) => <Icon {...p} d={<path d="m18 15-6-6-6 6"/>} />,
+            Calculator: (p) => <Icon {...p} d={<><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></>} />,
+            Users: (p) => <Icon {...p} d={<><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></>} />,
+            Smartphone: (p) => <Icon {...p} d={<rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>} />,
+            Mail: (p) => <Icon {...p} d={<><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></>} />,
+            Phone: (p) => <Icon {...p} d={<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>} />,
+            MapPin: (p) => <Icon {...p} d={<><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></>} />,
+            BarChart3: (p) => <Icon {...p} d={<><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></>} />,
+            Shield: (p) => <Icon {...p} d={<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>} />,
+            FileText: (p) => <Icon {...p} d={<><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></>} />
+        };
+
+        // --- 定数データ ---
+        const COMPANY_INFO = {
+            name: "エイドプラス株式会社",
+            address: "鹿児島市堀江町4-7-403",
+            tel: "099-800-6007",
+            email: "aidplus.kn@gmail.com",
+            formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdH8Q86Q2sBswQLaOiJhyhhtwnx5QHZvfw19uRUBa5CWOHfAg/viewform?usp=header"
+        };
+
+        const SERVICES_DATA = [
+            {
+                id: 'accounting',
+                title: "経理・会計",
+                subtitle: "日々の経理を、まとめて安心して任せられるパートナーに",
+                description: "領収書・請求書整理、会計ソフト入力（記帳代行）、月次・試算表作成まで。数字を経営に活かせる体制づくりをお手伝いします。",
+                icon: <Icons.Calculator size={32} />,
+                color: "bg-blue-50 text-blue-600",
+                detailContent: {
+                    features: [
+                        { title: "記帳代行・日次業務", text: "領収書・通帳・クレカ明細の整理から会計ソフトへの入力まで。" },
+                        { title: "請求・入金管理", text: "請求書発行、入金消込、売掛金残高の管理レポート作成。" },
+                        { title: "支払・経費精算", text: "支払予定一覧の作成、振込データの準備、社員経費精算のチェック。" },
+                        { title: "月次レポート", text: "試算表作成、前月比レポート。顧問税理士との連携資料作成。" }
+                    ],
+                    painPoints: [
+                        "領収書整理や入力に時間を取られている",
+                        "月次の数字が出るのが遅い",
+                        "請求漏れや入金確認が不安",
+                        "税理士への資料提出で毎月バタバタする"
+                    ]
+                }
+            },
+            {
+                id: 'general-affairs',
+                title: "総務・庶務",
+                subtitle: "社内の「雑多な事務」を整理して、本業に集中できる環境づくりを",
+                description: "社内文書・契約書管理、備品管理、会議調整など、専任を置くほどではないけれど重要な業務をサポートします。",
+                icon: <Icons.Users size={32} />,
+                color: "bg-emerald-50 text-emerald-600",
+                detailContent: {
+                    features: [
+                        { title: "総務・庶務全般", text: "問い合わせ一次対応、会議日程調整、来客・郵便対応ルールの整備。" },
+                        { title: "文書・契約書管理", text: "フォルダ整理、契約書台帳の作成、更新期限管理。" },
+                        { title: "備品・環境管理", text: "備品発注代行、在庫管理、オフィスレイアウト変更の事務手配。" },
+                        { title: "労務・人事事務", text: "勤怠データ集計、入退社チェックリスト作成、求人応募者管理。" }
+                    ],
+                    painPoints: [
+                        "「とりあえず総務の人」に仕事が集中している",
+                        "最新の契約書や社内規定がどこにあるか不明",
+                        "備品の発注漏れや在庫過多が起きている",
+                        "承認フローが曖昧で書類が停滞する"
+                    ]
+                }
+            },
+            {
+                id: 'secretary',
+                title: "オンライン秘書",
+                subtitle: "スケジュール調整からタスク管理まで、リモートで強力にバックアップ",
+                description: "会議・出張の手配、メール対応、議事録作成など。経営者やリーダーの時間を確保します。",
+                icon: <Icons.Smartphone size={32} />,
+                color: "bg-indigo-50 text-indigo-600",
+                detailContent: null 
+            }
+        ];
+
+        const FLOW_STEPS = [
+            { num: "01", title: "ヒアリング", desc: "課題・優先度・利用ツールを確認します。" },
+            { num: "02", title: "お見積り", desc: "内容をもとに、最適なプランをご提案いたします。" },
+            { num: "03", title: "ご契約", desc: "電子署名などでスムーズに契約締結可能です。" },
+            { num: "04", title: "運用開始", desc: "業務フローを確認し、サポートを開始します。" },
+        ];
+
+        const FAQ_ITEMS = [
+            { q: "一部の業務だけ依頼することはできますか？", a: "可能です。記帳だけ、備品管理だけなど、現状の体制に合わせて切り出してご依頼いただけます。" },
+            { q: "毎月どのくらいのボリュームから対応してもらえますか？", a: "小規模事業者さまから数百仕訳／月の法人さままで柔軟に対応しています。" },
+            { q: "オンラインのみで完結できますか？", a: "基本は全国リモート対応です。鹿児島市近郊は現地作業もご相談可能です。" },
+            { q: "使用ツールの指定は可能ですか？", a: "freee、マネーフォワード、Slack、Chatworkなど、貴社導入済みのツールに合わせて運用します。" },
+            { q: "セキュリティは大丈夫ですか？", a: "権限設定・ログ管理を徹底し、機密保持契約（NDA）にも対応しています。" },
+        ];
+
+        // --- コンポーネント ---
+
+        const Modal = ({ isOpen, onClose, service }) => {
+            if (!isOpen || !service) return null;
+
+            return (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+                    <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onClick={onClose}></div>
+                    <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto animate-[fadeInUp_0.3s_ease-out]">
+                        <button 
+                            onClick={onClose}
+                            className="absolute top-4 right-4 p-2 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors z-10"
+                        >
+                            <Icons.X size={24} className="text-slate-600" />
+                        </button>
+
+                        <div className={`p-8 pb-6 ${service.color.replace('text-', 'bg-').replace('50', '100')} bg-opacity-30`}>
+                            <div className="flex items-center gap-4 mb-4">
+                                <div className={`p-3 rounded-xl bg-white shadow-sm ${service.color}`}>
+                                    {service.icon}
+                                </div>
+                                <h2 className="text-2xl sm:text-3xl font-bold text-slate-800">{service.title}</h2>
+                            </div>
+                            <p className="text-lg text-slate-700 font-medium">{service.subtitle}</p>
+                        </div>
+
+                        <div className="p-8">
+                            {service.detailContent ? (
+                                <div className="space-y-10">
+                                    <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                                        <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">こんなお悩みに</h3>
+                                        <ul className="grid gap-3 sm:grid-cols-2">
+                                            {service.detailContent.painPoints.map((point, idx) => (
+                                                <li key={idx} className="flex items-start gap-2 text-slate-700">
+                                                    <Icons.CheckCircle size={18} className="text-blue-500 shrink-0 mt-0.5" />
+                                                    <span>{point}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <h3 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                                            <Icons.FileText className="text-blue-600" />
+                                            対応業務の詳細
+                                        </h3>
+                                        <div className="grid sm:grid-cols-2 gap-6">
+                                            {service.detailContent.features.map((feature, idx) => (
+                                                <div key={idx} className="border border-slate-200 rounded-xl p-5 hover:shadow-md transition-shadow">
+                                                    <h4 className="font-bold text-lg text-slate-800 mb-2">{feature.title}</h4>
+                                                    <p className="text-slate-600 text-sm leading-relaxed">{feature.text}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="text-center pt-4 border-t border-slate-100">
+                                        <p className="text-slate-600 mb-4">この業務について詳しく相談したいですか？</p>
+                                        <a 
+                                            href={COMPANY_INFO.formUrl} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all hover:-translate-y-1 shadow-lg shadow-blue-200"
+                                        >
+                                            <Icons.Mail size={18} />
+                                            無料相談・お見積り
+                                        </a>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="text-center py-12">
+                                    <p className="text-slate-600 mb-8">
+                                        オンライン秘書サービスの詳細については、現在お問い合わせベースでご案内しております。<br/>
+                                        貴社の課題に合わせてカスタマイズ可能ですので、お気軽にご相談ください。
+                                    </p>
+                                    <a 
+                                        href={COMPANY_INFO.formUrl} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all hover:-translate-y-1 shadow-lg shadow-blue-200"
+                                    >
+                                        <Icons.Mail size={18} />
+                                        お問い合わせはこちら
+                                    </a>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        function App() {
+            const [isScrolled, setIsScrolled] = useState(false);
+            const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+            const [selectedService, setSelectedService] = useState(null);
+            const [openFaqIndex, setOpenFaqIndex] = useState(null);
+            const [heroImg, setHeroImg] = useState("hero.jpg");
+            // ロゴ画像のファイル名を、パス認識しやすいように「aidplus_logo.png」に変更することを推奨します。
+            const [logoImg, setLogoImg] = useState("aidplus_logo.png"); // ★★★ 修正箇所 ★★★
+
+            // Unsplash Fallback Images
+            const HERO_FALLBACK = "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop";
+            const TEAM_IMAGE = "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop";
+
+            useEffect(() => {
+                const handleScroll = () => setIsScrolled(window.scrollY > 50);
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            const toggleFaq = (index) => {
+                setOpenFaqIndex(openFaqIndex === index ? null : index);
+            };
+            
+            return (
+                <div className="font-sans text-slate-800 bg-slate-50 selection:bg-blue-100">
+                    
+                    {/* Navigation */}
+                    <header 
+                        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+                            isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
+                        }`}
+                    >
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                {/* ロゴ表示部分 */}
+                                <img 
+                                    src={logoImg} 
+                                    alt="エイドプラス株式会社のロゴ" 
+                                    className={`h-10 w-auto object-contain transition-all duration-300 ${
+                                        isScrolled ? 'brightness-100' : 'brightness-200 contrast-150' // スクロール前は白っぽい背景になじむように調整
+                                    }`}
+                                    onError={() => {
+                                        // aidplus_logo.pngが見つからない場合、元の日本語ファイル名で再試行
+                                        if (logoImg === "aidplus_logo.png") {
+                                            setLogoImg("ロゴ（背景透明・文字青）.png");
+                                        } else {
+                                            // それでも見つからない場合は表示を完全にオフにする
+                                            setLogoImg(null); 
+                                        }
+                                    }} 
+                                    style={{display: logoImg ? 'block' : 'none'}}
+                                />
+                                <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${isScrolled ? 'text-slate-800' : 'text-white drop-shadow-md'}`}>
+                                    {COMPANY_INFO.name}
+                                </span>
+                            </div>
+
+                            {/* Desktop Menu */}
+                            <nav className={`hidden md:flex items-center gap-8 font-medium ${isScrolled ? 'text-slate-600' : 'text-white/90 drop-shadow-md'}`}>
+                                <a href="#home" className="hover:text-blue-500 transition-colors">ホーム</a>
+                                <a href="#features" className="hover:text-blue-500 transition-colors">特徴</a>
+                                <a href="#services" className="hover:text-blue-500 transition-colors">サービス</a>
+                                <a href="#flow" className="hover:text-blue-500 transition-colors">導入の流れ</a>
+                                <a 
+                                    href={COMPANY_INFO.formUrl} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className={`px-5 py-2.5 rounded-full font-bold transition-all ${
+                                        isScrolled 
+                                            ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg' 
+                                            : 'bg-white text-blue-600 hover:bg-blue-50'
+                                    }`}
+                                >
+                                    無料相談
+                                </a>
+                            </nav>
+
+                            {/* Mobile Menu Button */}
+                            <button 
+                                className={`md:hidden p-2 rounded-lg ${isScrolled ? 'text-slate-800' : 'text-white'}`}
+                                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            >
+                                {mobileMenuOpen ? <Icons.X size={24} /> : <Icons.Menu size={24} />}
+                            </button>
+                        </div>
+
+                        {/* Mobile Dropdown */}
+                        {mobileMenuOpen && (
+                            <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t border-slate-100 shadow-xl p-4 flex flex-col gap-4 animate-in slide-in-from-top-5">
+                                <a href="#home" className="p-2 hover:bg-slate-50 rounded-lg" onClick={() => setMobileMenuOpen(false)}>ホーム</a>
+                                <a href="#features" className="p-2 hover:bg-slate-50 rounded-lg" onClick={() => setMobileMenuOpen(false)}>特徴</a>
+                                <a href="#services" className="p-2 hover:bg-slate-50 rounded-lg" onClick={() => setMobileMenuOpen(false)}>サービス</a>
+                                <a 
+                                    href={COMPANY_INFO.formUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="bg-blue-600 text-white p-3 rounded-lg text-center font-bold shadow-md"
+                                >
+                                    無料相談・お問い合わせ
+                                </a>
+                            </div>
+                        )}
+                    </header>
+
+                    {/* Hero Section */}
+                    <section id="home" className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
+                        <div className="absolute inset-0 z-0">
+                            <img 
+                                src={heroImg} 
+                                onError={() => setHeroImg(HERO_FALLBACK)}
+                                alt="Office Background" 
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-slate-900/30"></div>
+                        </div>
+
+                        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full">
+                            <div className="max-w-2xl fade-in-up">
+                                <div className="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-blue-100 font-semibold text-sm mb-6">
+                                    事務代行・オンライン秘書サービス
+                                </div>
+                                <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg">
+                                    事務代行は、<br />
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-teal-300">プロに任せる時代へ</span>
+                                </h1>
+                                <p className="text-lg md:text-xl text-slate-200 mb-10 leading-relaxed drop-shadow-md">
+                                    経理・総務・秘書業務など、煩雑になりがちなバックオフィス業務をワンストップで支援。<br className="hidden md:block" />
+                                    確かな体制で、貴社の生産性向上とコア業務への集中を実現します。
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-4">
+                                    <a 
+                                        href={COMPANY_INFO.formUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-lg shadow-lg shadow-blue-900/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
+                                    >
+                                        まずは相談する <Icons.ArrowRight size={20} />
+                                    </a>
+                                    <a 
+                                        href="#services" 
+                                        className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-full font-bold text-lg transition-all hover:-translate-y-1 flex items-center justify-center"
+                                    >
+                                        サービス一覧
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">
+                            <Icons.ChevronDown size={32} />
+                        </div>
+                    </section>
+
+                    {/* Features */}
+                    <section id="features" className="py-24 bg-white">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                            <div className="text-center mb-16 fade-in-up">
+                                <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">エイドプラスが選ばれる理由</h2>
+                                <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">
+                                    <span className="inline-block">単なる作業代行ではありません。</span>
+                                    <span className="inline-block"><span className="font-bold text-blue-600">「業務の整理・仕組み化」</span>から伴走し、</span>
+                                    <span className="inline-block">会社の資産となるバックオフィス体制を構築します。</span>
+                                </p>
+                            </div>
+
+                            <div className="grid md:grid-cols-3 gap-8">
+                                {[
+                                    { 
+                                        title: "専任チームで伴走", 
+                                        desc: <>1人の担当者に依存せず、チームで業務をカバー。<br className="hidden lg:inline"/>退職リスクや急な欠勤の心配がありません。</>,
+                                        img: TEAM_IMAGE,
+                                        icon: <Icons.Users className="text-white" size={24} />
+                                    },
+                                    { 
+                                        title: "業務の見える化", 
+                                        desc: <>属人化した業務フローを整理・マニュアル化。<br className="hidden lg:inline"/>ブラックボックスを解消し、透明性の高い運用を実現します。</>,
+                                        img: "https://images.unsplash.com/photo-1554224154-22dec7ec8818?q=80&w=1600&auto=format&fit=crop",
+                                        icon: <Icons.BarChart3 className="text-white" size={24} />
+                                    },
+                                    { 
+                                        title: "オンラインで一元管理", 
+                                        desc: <>チャットやクラウドツールを活用し、全国どこからでもスムーズに連携。<br className="hidden lg:inline"/>まるで隣にいるようなスピード感です。</>,
+                                        img: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?q=80&w=1600&auto=format&fit=crop",
+                                        icon: <Icons.Smartphone className="text-white" size={24} />
+                                    },
+                                ].map((feature, idx) => (
+                                    <div key={idx} className={`group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full fade-in-up delay-${idx}00`}>
+                                        <div className="h-48 overflow-hidden">
+                                            <img src={feature.img} alt={feature.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                        </div>
+                                        <div className="relative p-8 bg-white -mt-10 mx-4 rounded-xl shadow-sm border border-slate-100">
+                                            <div className="absolute -top-6 right-6 w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-200 group-hover:scale-110 transition-transform">
+                                                {feature.icon}
+                                            </div>
+                                            <h3 className="text-xl font-bold text-slate-800 mb-3">{feature.title}</h3>
+                                            <p className="text-slate-600 text-sm leading-relaxed">{feature.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Services Section */}
+                    <section id="services" className="py-24 bg-slate-50 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-50"></div>
+                        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-emerald-100 rounded-full blur-3xl opacity-50"></div>
+
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+                            <div className="text-center mb-16 fade-in-up">
+                                <span className="text-blue-600 font-bold tracking-wider uppercase text-sm">Our Services</span>
+                                <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mt-2 mb-4">対応可能な業務</h2>
+                                <p className="text-slate-500">お客様の課題に合わせて、必要な業務だけを自由に組み合わせられます。</p>
+                            </div>
+
+                            <div className="grid lg:grid-cols-3 gap-8">
+                                {SERVICES_DATA.map((service, idx) => (
+                                    <div 
+                                        key={service.id}
+                                        className={`bg-white rounded-2xl shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-100 flex flex-col hover:-translate-y-2 transition-transform duration-300 cursor-pointer group fade-in-up delay-${idx}00`}
+                                        onClick={() => setSelectedService(service)}
+                                    >
+                                        <div className={`p-6 ${service.color.replace('text-', 'bg-')} bg-opacity-20 flex items-center justify-between`}>
+                                            <div className={`p-3 rounded-xl bg-white shadow-sm ${service.color}`}>
+                                                {service.icon}
+                                            </div>
+                                            <div className="p-2 bg-white/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <Icons.ArrowRight size={20} className={service.color} />
+                                            </div>
+                                        </div>
+                                        <div className="p-8 flex-1 flex flex-col">
+                                            <h3 className="text-2xl font-bold text-slate-800 mb-3">{service.title}</h3>
+                                            <p className="text-slate-600 mb-6 flex-1">{service.description}</p>
+                                            <button className="w-full py-3 rounded-xl border border-slate-200 text-slate-600 font-bold hover:bg-slate-50 hover:text-blue-600 transition-colors flex items-center justify-center gap-2">
+                                                詳細を見る
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Flow Section */}
+                    <section id="flow" className="py-24 bg-white">
+                        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+                            <div className="text-center mb-16 fade-in-up">
+                                <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">導入までの流れ</h2>
+                                <p className="text-slate-500">最短で当日〜数日で着手可能。まずは無料相談からスタートします。</p>
+                            </div>
+
+                            <div className="space-y-8 md:space-y-0 md:grid md:grid-cols-4 gap-4 relative">
+                                <div className="hidden md:block absolute top-8 left-0 right-0 h-0.5 bg-slate-100 -z-10"></div>
+
+                                {FLOW_STEPS.map((step, idx) => (
+                                    <div key={idx} className="relative flex flex-row md:flex-col items-center md:text-center gap-6 md:gap-4 fade-in-up">
+                                        <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-xl font-bold shadow-lg shadow-blue-200 relative z-10">
+                                            {step.num}
+                                        </div>
+                                        <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm md:border-0 md:shadow-none md:bg-transparent w-full">
+                                            <h3 className="text-lg font-bold text-slate-800 mb-1">{step.title}</h3>
+                                            <p className="text-sm text-slate-500">{step.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* FAQ Section */}
+                    <section id="faq" className="py-24 bg-slate-50">
+                        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+                            <div className="text-center mb-16 fade-in-up">
+                                <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">よくある質問</h2>
+                            </div>
+
+                            <div className="space-y-4">
+                                {FAQ_ITEMS.map((item, idx) => (
+                                    <div 
+                                        key={idx} 
+                                        className="bg-white rounded-xl border border-slate-200 overflow-hidden transition-all duration-300"
+                                    >
+                                        <button 
+                                            className="w-full flex items-center justify-between p-5 text-left font-bold text-slate-800 hover:bg-slate-50"
+                                            onClick={() => toggleFaq(idx)}
+                                        >
+                                            <span className="flex items-center gap-3">
+                                                <span className="text-blue-600">Q.</span> {item.q}
+                                            </span>
+                                            {openFaqIndex === idx ? <Icons.ChevronUp className="text-slate-400" /> : <Icons.ChevronDown className="text-slate-400" />}
+                                        </button>
+                                        <div 
+                                            className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                                                openFaqIndex === idx ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
+                                            }`}
+                                        >
+                                            <div className="p-5 pt-0 text-slate-600 border-t border-slate-50 bg-slate-50/50">
+                                                <span className="font-bold text-emerald-600 mr-2">A.</span>
+                                                {item.a}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Big CTA */}
+                    <section className="py-20 bg-gradient-to-br from-blue-600 to-indigo-700 text-white relative overflow-hidden">
+                        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10 fade-in-up">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-6">バックオフィスの課題、まるっとお任せください</h2>
+                            <p className="text-blue-100 text-lg mb-10 max-w-2xl mx-auto">
+                                現在の状況をお聞かせいただければ、最適な切り分けとプランをご提案します。<br/>
+                                無理な営業は一切いたしません。まずはお気軽にご相談ください。
+                            </p>
+                            <a 
+                                href={COMPANY_INFO.formUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-3 px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-xl shadow-2xl shadow-blue-900/40 hover:scale-105 transition-transform"
+                            >
+                                <Icons.Mail size={24} />
+                                無料相談・お見積りはこちら
+                            </a>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer className="bg-slate-900 text-slate-400 py-12">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-4 gap-8">
+                            <div className="col-span-2">
+                                <div className="flex items-center gap-2 text-white font-bold text-xl mb-4">
+                                    <Icons.Shield size={24} className="text-blue-500" />
+                                    {COMPANY_INFO.name}
+                                </div>
+                                <p className="text-sm leading-relaxed mb-6">
+                                    中小企業・個人事業主様のバックオフィスをワンストップで支援。<br/>
+                                    鹿児島を拠点に、全国のビジネスをサポートします。
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <h4 className="text-white font-bold mb-4">Menu</h4>
+                                <ul className="space-y-2 text-sm">
+                                    <li><a href="#home" className="hover:text-white transition-colors">ホーム</a></li>
+                                    <li><a href="#services" className="hover:text-white transition-colors">サービス一覧</a></li>
+                                    <li><a href="#flow" className="hover:text-white transition-colors">導入の流れ</a></li>
+                                    <li><a href="#faq" className="hover:text-white transition-colors">よくある質問</a></li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 className="text-white font-bold mb-4">Contact</h4>
+                                <ul className="space-y-2 text-sm">
+                                    <li className="flex items-start gap-2">
+                                        <Icons.MapPin size={16} className="mt-1 shrink-0" />
+                                        {COMPANY_INFO.address}
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <Icons.Phone size={16} />
+                                        {COMPANY_INFO.tel}
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <Icons.Mail size={16} />
+                                        {COMPANY_INFO.email}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-12 pt-8 border-t border-slate-800 text-center text-xs">
+                            © {new Date().getFullYear()} AidPlus Inc. All rights reserved.
+                        </div>
+                    </footer>
+
+                    {/* Modal */}
+                    <Modal 
+                        isOpen={!!selectedService} 
+                        onClose={() => setSelectedService(null)} 
+                        service={selectedService} 
+                    />
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
